@@ -7,7 +7,7 @@ import signIn from './controllers/signIn.js';
 import profile from './controllers/profile.js';
 import image from './controllers/image.js';
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 const db = knex({
   client: 'pg',
@@ -34,5 +34,5 @@ app.put('/image', image.handleImage(db));
 app.post('/imageurl', image.handleApıCall());
 
 app.listen(PORT, () => {
-  console.log('app is working on port 3000');
+  console.log(`app is working on port ${PORT}`);
 });
